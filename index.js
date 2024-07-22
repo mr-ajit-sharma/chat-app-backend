@@ -6,16 +6,19 @@ import messageRoute from './routes/message.route.js'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 dotenv.config({path:"./.env"})
-const PORT=process.env.PORT||5000
+const PORT= process.env.PORT||process.env.BASE_URL|| 5001
 import {app,server} from './socket/socket.js'
+// import { METHODS } from 'http'
 // middleware
 
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
 app.use(express.json())
 const corsOption={
-    origin:"http://localhost:5173",
-    credentials:true
+    origin:"https://heychatme.netlify.app",
+    methods:["GET","POST","PUT","DELETE"],
+    credentials:true,
+    allowedHeaders:['Content-Type']
 }
 app.use(cors(corsOption))
 // routes
