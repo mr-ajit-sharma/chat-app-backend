@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
 app.use(express.json())
 const corsOption={
-    origin:process.env.BASE_URL,
+    origin:`https://heychatme.netlify.app`,
     methods:["GET","POST","PUT","DELETE"],
     credentials:true,
     allowedHeaders:['Content-Type']
