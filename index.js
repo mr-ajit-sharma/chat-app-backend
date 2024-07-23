@@ -14,13 +14,13 @@ import {app,server} from './socket/socket.js'
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
 app.use(express.json())
-const corsOption={
-    origin:process.env.BASE_URL,
-    methods:["GET","POST","PUT","DELETE"],
-    credentials:true,
-    allowedHeaders:['Content-Type']
-}
-app.use(cors(corsOption))
+// const corsOption={
+//     origin:process.env.BASE_URL,
+//     methods:["GET","POST","PUT","DELETE"],
+//     credentials:true,
+//     allowedHeaders:['Content-Type']
+// }
+app.use(cors())
 // routes
 app.use('/api/v1/user',userRoute)
 app.use('/api/v1/message',messageRoute)
